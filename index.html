@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una experiencia web interactiva sobre la historia bíblica del rey Roboam. Diseñada para jóvenes sobre decisiones, consejos y orgullo.">
+    <title>ROBOAM: Una decisión que dividió un reino</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient / Sound Control (Synthesized Ambient Pad) -->
+    <div class="sound-control-panel" id="soundControlPanel">
+        <button id="soundToggle" class="sound-btn" aria-label="Activar música de fondo">
+            <span class="icon">🔇</span>
+            <span class="text">Música Épica</span>
+        </button>
+        <div class="audio-waves" id="audioWaves">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <!-- Navigation indicators (Dots) -->
+    <div class="slide-indicators" id="slideIndicators"></div>
+
+    <!-- Slideshow Wrapper -->
+    <main class="slider-container" id="sliderContainer">
+
+        <!-- Slide 1: Portada -->
+        <section class="slide active" id="slide1" style="background-image: linear-gradient(to bottom, rgba(5, 8, 20, 0.7), rgba(12, 16, 32, 0.9)), url('assets/images/01_portada.png');">
+            <div class="slide-content text-center">
+                <span class="slide-badge">HISTORIA BÍBLICA INTERACTIVA</span>
+                <h1 class="main-title">ROBOAM</h1>
+                <h2 class="sub-title">Una decisión que dividió un reino</h2>
+                <p class="slide-intro">Una experiencia inmersiva sobre orgullo, consejo y consecuencias.</p>
+                <div class="cta-container">
+                    <button class="btn btn-primary" onclick="goToSlide(1)">
+                        <span>👉 Comenzar Historia</span>
+                    </button>
+                </div>
+            </div>
+            <div class="scroll-helper">Desliza o usa las flechas ↓</div>
+        </section>
+
+        <!-- Slide 2: El Nuevo Rey -->
+        <section class="slide" id="slide2" style="background-image: linear-gradient(to bottom, rgba(5, 8, 20, 0.8), rgba(12, 16, 32, 0.95)), url('assets/images/02_rey_trono.png');">
+            <div class="slide-content">
+                <div class="grid-2col">
+                    <div class="text-block">
+                        <span class="slide-badge">EL LEGADO</span>
+                        <h2 class="slide-title">El Nuevo Rey</h2>
+                        <p>Tras la muerte del sabio rey Salomón, su joven hijo <strong>Roboam</strong> hereda el trono más glorioso de la antigüedad.</p>
+                        <p>Jerusalén brilla con templos y palacios de oro, pero bajo la superficie, la tensión social está al límite. El gran reino de Israel está unido... <em>por ahora.</em></p>
+                    </div>
+                    <div class="visual-card">
+                        <div class="quote-overlay">
+                            <p class="quote-text">"Heredar la corona es fácil; gobernar con sabiduría requiere un corazón enseñable."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: La Petición del Pueblo -->
+        <section class="slide" id="slide3" style="background-image: linear-gradient(to bottom, rgba(5, 8, 20, 0.8), rgba(12, 16, 32, 0.95)), url('assets/images/03_peticion.png');">
+            <div class="slide-content">
+                <div class="grid-2col reverse">
+                    <div class="text-block">
+                        <span class="slide-badge">EL RECLAMO</span>
+                        <h2 class="slide-title">La Petición del Pueblo</h2>
+                        <p>El pueblo de Israel, agotado por los excesivos impuestos y el trabajo forzado impuesto por Salomón, se reúne en Siquem.</p>
+                        <p>Liderados por Jeroboam, presentan una petición crucial al nuevo rey:</p>
+                        <div class="highlight-phrase">
+                            <span class="highlight-icon">👉</span>
+                            <p class="highlight-text">"Tu padre agravó nuestro yugo, mas ahora alivia tú algo de la dura servidumbre... y te serviremos."</p>
+                        </div>
+                    </div>
+                    <div class="visual-card glass-panel">
+                        <div class="card-stat">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Tribus esperando respuesta</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: El Tiempo de Decisión -->
+        <section class="slide" id="slide4" style="background-image: linear-gradient(to bottom, rgba(5, 8, 20, 0.85), rgba(12, 16, 32, 0.95)), url('assets/images/01_portada.png');">
+            <div class="slide-content">
+                <div class="text-center max-w-xl">
+                    <span class="slide-badge">LA PAUSA</span>
+                    <h2 class="slide-title">El Tiempo de Decisión</h2>
+                    <p>Roboam no responde inmediatamente. Decide ganar tiempo y les dice al pueblo:</p>
+                    <p class="highlight-quote">"Idos, y de aquí a tres días volved a mí."</p>
+                    <p>El reloj corre. Tres días para buscar consejo, medir las consecuencias y tomar la decisión que definirá el futuro de millones.</p>
+                    
+                    <!-- Interactive Countdown Simulator -->
+                    <div class="interactive-timer-container">
+                        <div class="timer-circle">
+                            <div class="timer-text" id="countdownTimer">3 DIAS</div>
+                        </div>
+                        <button class="btn btn-secondary btn-sm" id="timerActionBtn">Sentir la Presión</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Dos Consejos -->
+        <section class="slide" id="slide5" style="background-image: linear-gradient(to bottom, rgba(5, 8, 20, 0.8), rgba(12, 16, 32, 0.95)), url('assets/images/04_dos_caminos.png');">
+            <div class="slide-content">
+                <span class="slide-badge text-center">LA ENCRUCIJADA</span>
+                <h2 class="slide-title text-center">Dos Consejos en la Balanza</h2>
+                <p class="text-center slide-desc">Roboam consulta a dos grupos. Elige cada opción para ver el impacto de sus voces:</p>
+                
+                <div class="choices-container">
+                    <!-- Choice 1: Sabios -->
+                    <div class="choice-card" id="choiceElders">
+                        <div class="card-icon">👴</div>
+                        <h3>El Consejo de los Sabios</h3>
+                        <p class="counsel-source">Los ancianos que sirvieron a Salomón:</p>
+                        <p class="counsel-text">"Si hoy te haces servidor de este pueblo, les sirves y les respondes con buenas palabras, ellos te servirán para siempre."</p>
+                        <div class="counsel-tag tag-wisdom">Camino de la Humildad</div>
+                    </div>
+                    
+                    <!-- Choice 2: Jóvenes -->
+                    <div class="choice-card" id="choiceYouth">
+                        <div class="card-icon">🧑</div>
+                        <h3>El Consejo de los Jóvenes</h3>
+                        <p class="counsel-source">Sus amigos criados con él:</p>
+                        <p class="counsel-text">"Diles: Mi dedo más pequeño es más grueso que los lomos de mi padre... Yo añadiré a vuestro yugo; mi padre os castigó con azotes, pero yo con escorpiones."</p>
+                        <div class="counsel-tag tag-pride">Camino del Orgullo</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: La Decisión -->
+        <section class="slide" id="slide6" style="background-image: linear-gradient(to bottom, rgba(5, 8, 20, 0.85), rgba(12, 16, 32, 0.95)), url('assets/images/02_rey_trono.png');">
+            <div class="slide-content">
+                <div class="text-center max-w-xl">
+                    <span class="slide-badge badge-danger">EL ERROR</span>
+                    <h2 class="slide-title">La Decisión</h2>
+                    <p>Roboam despreció el sabio consejo de los ancianos y adoptó la dureza sugerida por los jóvenes de su corte.</p>
+                    <p>Dominado por el orgullo y el deseo de imponer autoridad, proclamó ante el pueblo tembloroso:</p>
+                    
+                    <div class="speech-bubble">
+                        <span class="quote-mark">“</span>
+                        <p class="heavy-statement">"Mi padre los castigó con azotes, pero yo los castigaré más fuerte."</p>
+                    </div>
+                    <p class="sub-caption">1 Reyes 12:14</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: La División (Interactive Rupture) -->
+        <section class="slide" id="slide7" style="background-image: linear-gradient(to bottom, rgba(5, 8, 20, 0.8), rgba(12, 16, 32, 0.95)), url('assets/images/05_division.png');">
+            <div class="slide-content">
+                <span class="slide-badge text-center badge-danger">FRACTURA HISTÓRICA</span>
+                <h2 class="slide-title text-center">Un Reino Dividido</h2>
+                <p class="text-center slide-desc">La dura respuesta encendió la rebelión. Haz clic sobre la corona para simular el impacto del orgullo en la nación:</p>
+                
+                <div class="rupture-interactive-container">
+                    <div class="map-split-visual" id="kingdomCrown">
+                        <div class="crown-half left" id="crownLeft">
+                            <span class="kingdom-name">ISRAEL<br><small>10 Tribus (Jeroboam)</small></span>
+                        </div>
+                        <div class="crown-half right" id="crownRight">
+                            <span class="kingdom-name">JUDÁ<br><small>2 Tribus (Roboam)</small></span>
+                        </div>
+                        <div class="rupture-line" id="ruptureLine"></div>
+                    </div>
+                    <div class="rupture-controls">
+                        <button class="btn btn-danger" id="ruptureBtn">💥 Provocar la Ruptura</button>
+                        <button class="btn btn-secondary" id="resetRuptureBtn" style="display: none;">Restaurar</button>
+                    </div>
+                </div>
+                <p class="text-center font-sm" id="ruptureText">El reino unificado de David y Salomón se rompe en dos bloques irreparables.</p>
+            </div>
+        </section>
+
+        <!-- Slide 8: Consecuencias -->
+        <section class="slide" id="slide8" style="background-image: linear-gradient(to bottom, rgba(5, 8, 20, 0.85), rgba(12, 16, 32, 0.95)), url('assets/images/03_peticion.png');">
+            <div class="slide-content">
+                <div class="grid-2col">
+                    <div class="text-block">
+                        <span class="slide-badge">LA CONSECUENCIA</span>
+                        <h2 class="slide-title">El Intento de Guerra</h2>
+                        <p>Humillado y furioso, Roboam reúne un ejército masivo de <strong>180,000 guerreros escogidos</strong> de Judá y Benjamín para pelear contra Israel y reclamar el control.</p>
+                        <p>Pero Dios detiene la guerra mediante el profeta Semaías:</p>
+                        <div class="prophecy-card">
+                            <p class="prophecy-quote">"No vayáis, ni peleéis contra vuestros hermanos... porque este asunto es mío."</p>
+                        </div>
+                        <p>Roboam se ve forzado a desistir. La nación queda sumergida en la inestabilidad y la desconfianza mutua.</p>
+                    </div>
+                    <div class="visual-card glass-panel flex-center">
+                        <div class="shield-loss-graphic">
+                            <span class="shield-icon">🛡️</span>
+                            <p class="shield-desc">El ejército se repliega. Las murallas protegen, pero el corazón nacional está herido de muerte.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Caída Espiritual -->
+        <section class="slide" id="slide9" style="background-image: linear-gradient(to bottom, rgba(5, 8, 20, 0.8), rgba(12, 16, 32, 0.95)), url('assets/images/06_invasion.png');">
+            <div class="slide-content">
+                <div class="grid-2col reverse">
+                    <div class="text-block">
+                        <span class="slide-badge badge-danger">LA CAÍDA</span>
+                        <h2 class="slide-title">La Invasión de Egipto</h2>
+                        <p>Roboam y Judá abandonan la ley de Dios. Al debilitarse espiritualmente, pierden la protección divina.</p>
+                        <p>En el quinto año del reinado, el faraón <strong>Sisac de Egipto</strong> invade Jerusalén con 1,200 carros y 60,000 jinetes.</p>
+                        <p>El templo es saqueado. Se roban los magníficos escudos de oro de Salomón. En su lugar, Roboam debe mandar a hacer escudos de humilde <strong>bronce</strong>.</p>
+                    </div>
+                    <div class="visual-card">
+                        <div class="comparison-shields">
+                            <div class="shield gold">
+                                <span class="shield-title">ORO</span>
+                                <span class="shield-sub">Época de Salomón (Abundancia)</span>
+                            </div>
+                            <div class="shield bronze">
+                                <span class="shield-title">BRONCE</span>
+                                <span class="shield-sub">Época de Roboam (Consecuencia)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Final de la Historia -->
+        <section class="slide" id="slide10" style="background-image: linear-gradient(to bottom, rgba(5, 8, 20, 0.9), rgba(12, 16, 32, 0.98)), url('assets/images/02_rey_trono.png');">
+            <div class="slide-content">
+                <div class="text-center max-w-xl">
+                    <span class="slide-badge">EL VERDICTO</span>
+                    <h2 class="slide-title">El Final de Roboam</h2>
+                    <p>Tras gobernar solo una fracción de lo que gobernó su padre, en constante guerra y con un reino debilitado, Roboam muere.</p>
+                    <p>La Biblia resume su legado con una advertencia contundente:</p>
+                    
+                    <div class="verdict-banner">
+                        <p class="verdict-quote">“Hizo lo malo, porque no dispuso su corazón para buscar a Jehová.”</p>
+                        <span class="verdict-ref">2 Crónicas 12:14</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: Resumen Visual Final -->
+        <section class="slide" id="slide11" style="background-image: linear-gradient(to bottom, rgba(5, 8, 20, 0.85), rgba(12, 16, 32, 0.95)), url('assets/images/01_portada.png');">
+            <div class="slide-content">
+                <span class="slide-badge text-center">LA TRAYECTORIA</span>
+                <h2 class="slide-title text-center">Cinco Pasos del Declive</h2>
+                <p class="text-center slide-desc">La anatomía de una mala decisión y sus ramificaciones:</p>
+                
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-number">1</div>
+                        <div class="timeline-body">
+                            <h4>Escuchó mal consejo</h4>
+                            <p>Despreció la experiencia de los ancianos y eligió los elogios agresivos de sus amigos jóvenes.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">2</div>
+                        <div class="timeline-body">
+                            <h4>Decisiones orgullosas</h4>
+                            <p>Intentó demostrar fuerza infundiendo miedo en lugar de servir al pueblo con humildad.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">3</div>
+                        <div class="timeline-body">
+                            <h4>Dividió el reino</h4>
+                            <p>Separó irremediablemente a las doce tribus unificadas de Israel.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">4</div>
+                        <div class="timeline-body">
+                            <h4>Perdió estabilidad</h4>
+                            <p>La invasión egipcia de Sisac saqueó los templos y empobreció la nación.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">5</div>
+                        <div class="timeline-body">
+                            <h4>Se alejó del Camino</h4>
+                            <p>No dispuso su corazón para buscar a Dios con constancia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 12: Reflexión Final (Impacto) -->
+        <section class="slide" id="slide12" class="starry-sky-bg">
+            <div class="stars-overlay" id="starsOverlay"></div>
+            <div class="slide-content">
+                <div class="text-center max-w-xl glass-panel reflection-panel">
+                    <span class="slide-badge">APLICACIÓN</span>
+                    <h2 class="slide-title">Reflexión Final</h2>
+                    
+                    <div class="reflection-quote">
+                        <p class="quote-big">💭 “No todas las decisiones fuertes son sabias…”</p>
+                        <p class="question-text">👉 ¿A quién estás escuchando cuando tienes que decidir?</p>
+                    </div>
+
+                    <!-- Personal reflection interactive text area -->
+                    <div class="user-reflection-box">
+                        <label for="reflectionInput" class="form-label">Escribe aquí una lección que te llevas hoy:</label>
+                        <textarea id="reflectionInput" class="form-textarea" placeholder="¿Cómo planeas buscar sabiduría en tus próximas decisiones importantes?..." rows="3"></textarea>
+                        <button class="btn btn-gold" id="saveReflectionBtn">Reflexionar e Interiorizar</button>
+                    </div>
+                    
+                    <div class="saved-reflection-message" id="savedMessage" style="display: none;">
+                        <span class="check-icon">✓</span>
+                        <p>Tu reflexión ha sido guardada en tu mente y corazón. ¡Elige siempre la humildad antes del orgullo!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Slide Control Overlays (Atrás / Siguiente) -->
+    <div class="slider-controls">
+        <button id="prevBtn" class="control-btn" aria-label="Slide anterior" disabled>
+            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button id="nextBtn" class="control-btn" aria-label="Siguiente slide">
+            <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+    </div>
+
+    <!-- Script file -->
+    <script src="app.js"></script>
+</body>
+</html>
